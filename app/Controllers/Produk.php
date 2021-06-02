@@ -17,7 +17,7 @@ class Produk extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Crud Query Builder',
+            'title' => 'Tambah Produk',
             'all_data' => $this->produkModel->select_data() // selecting all data
         ];
 

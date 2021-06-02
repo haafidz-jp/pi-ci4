@@ -38,7 +38,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header"></h6> -->
                 <!-- <a class="collapse-item" href="buttons.html">Daftar Produk</a> -->
-                <a class="collapse-item" href="/produk">Tambah Produk</a>
+                <a class="collapse-item" href=<?= base_url('/produk'); ?>>Tambah Produk</a>
             </div>
         </div>
     </li>
@@ -53,7 +53,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                <a class="collapse-item" href="/supplier">Tambah Supplier</a>
+                <a class="collapse-item" href=<?= base_url('/supplier'); ?>>Tambah Supplier</a>
                 <!-- <a class="collapse-item" href="utilities-border.html">Borders</a>
                 <a class="collapse-item" href="utilities-animation.html">Animations</a>
                 <a class="collapse-item" href="utilities-other.html">Other</a> -->
