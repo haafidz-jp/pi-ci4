@@ -13,13 +13,13 @@ class Export extends BaseController
     public function __construct()
     {
         $this->db = \Config\Database::connect();
-        $this->builder = $this->db->table('peoples');
+        $this->builder = $this->db->table('produk');
     }
 
     public function export_pdf()
     {
         $data = [
-            'pdf_peoples' => $this->builder->get()->getResultArray()
+            'pdf_produk' => $this->builder->get()->getResultArray()
         ];
 
         $html = view('export/pdf', $data);
@@ -41,7 +41,7 @@ class Export extends BaseController
         $this->response->setContentType('application/pdf');
         // Close and output PDF document
         // This method has several options, check the source code documentation for more information.
-        $pdf->Output('peoples.pdf', 'I');
+        $pdf->Output('produk.pdf', 'I');
     }
 
     public function export_excel()
@@ -53,9 +53,9 @@ class Export extends BaseController
         $spreadsheet->setActiveSheetIndex(0)
             ->setCellValue('A1', 'No')
             ->setCellValue('B1', 'Name')
-            ->setCellValue('C1', 'Address')
-            ->setCellValue('D1', 'Email')
-            ->setCellValue('E1', 'Birthdate');
+            ->setCellValue('C1', 'Category')
+            ->setCellValue('D1', 'Quantity')
+            ->setCellValue('E1', 'SKU');
 
         $column = 2;
         // tulis data mobil ke cell
@@ -64,14 +64,14 @@ class Export extends BaseController
             $spreadsheet->setActiveSheetIndex(0)
                 ->setCellValue('A' . $column, $no++)
                 ->setCellValue('B' . $column, $data['name'])
-                ->setCellValue('C' . $column, $data['address'])
-                ->setCellValue('D' . $column, $data['email'])
-                ->setCellValue('E' . $column, $data['birthdate']);
+                ->setCellValue('C' . $column, $data['category'])
+                ->setCellValue('D' . $column, $data['quantity'])
+                ->setCellValue('E' . $column, $data['sku']);
             $column++;
         }
         // tulis dalam format .xlsx
         $writer = new Xlsx($spreadsheet);
-        $fileName = 'Peoples Data';
+        $fileName = 'Produk Data';
 
         // Redirect hasil generate xlsx ke web client
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');

@@ -15,23 +15,23 @@
 <body>
 
     <div class="container mt-5">
-    <h1 align="center">List of Peoples</h1>
+    <h1 align="center">List Produk</h1>
         <table class="table table-bordered table-striped" border="1">
                 <tr>
                     <th>No</th>
                     <th>Name</th>
-                    <th>Address</th>
-                    <th>Email</th>
-                    <th>Birthdate</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>SKU</th>
                 </tr>
                 <?php $no = 1; ?>
-                <?php foreach ($pdf_peoples as $pp) : ?>
+                <?php foreach ($pdf_produk as $pp) : ?>
                     <tr>
                         <td><?= $no++; ?></td>
                         <td><?= $pp['name']; ?></td>
-                        <td><?= $pp['address']; ?></td>
-                        <td><?= $pp['email']; ?></td>
-                        <td><?= $pp['birthdate']; ?></td>
+                        <td><?= $pp['category']; ?></td>
+                        <td><?= $pp['quantity']; ?></td>
+                        <td><?= $pp['sku']; ?></td>
                     </tr>
                 <?php endforeach; ?>
         </table>
