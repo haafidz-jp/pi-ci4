@@ -21,7 +21,7 @@ class Produk extends BaseController
             'all_data' => $this->produkModel->select_data() // selecting all data
         ];
 
-        return view('builder/index', $data);
+        return view('produk/index', $data);
     }
 
     public function add_data()

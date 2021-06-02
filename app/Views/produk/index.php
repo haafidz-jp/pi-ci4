@@ -16,6 +16,9 @@
                 </div>
                 <div class="card-body">
                     <a href="" class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#addModal"><i class="fas fa-plus-square"></i> Add data</a>
+                    <a href="" class="btn btn-primary btn-sm mb-2 fa fa-file-pdf"> Export PDF</a>
+                    <a href="" class="btn btn-primary btn-sm mb-2 fa fa-file-excel"> Export Excel</a>
+
 
                     <?php
                     $errors = session()->getFlashdata('Failed');
