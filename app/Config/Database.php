@@ -32,10 +32,10 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'us-cdbr-east-04.cleardb.com',
-		'username' => 'b86a92164345a0',
-		'password' => 'dd71438e',
-		'database' => 'heroku_5a25b90f505369c',
+		'hostname' => '',
+		'username' => '',
+		'password' => '',
+		'database' => '',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

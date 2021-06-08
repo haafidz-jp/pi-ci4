@@ -110,7 +110,7 @@
             <!-- Card Header - Dropdown -->
             <div
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Stok Barang < 5</h6>
+                <h6 class="m-0 font-weight-bold text-primary">List Stok Barang < 5</h6>
                 <!-- <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -125,12 +125,45 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </div> -->
+                
             </div>
-            <!-- Card Body -->
+            <!-- Card Body -> stok < 5 -->
             <div class="card-body">
                 <div class="chart-area">
-                    <!-- <canvas id="myAreaChart"></canvas> -->
-                    <p>1. Sidu</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered display" id="dataTableKurang" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Kategori</th>
+                                    <th>Quantity</th>
+                                    <th>SKU</th>
+                                    <th>Option</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1;
+                                foreach ($all_data as $datas) : ?>
+                                    <tr>
+                                        <td width="1%"><?= $no++; ?></td>
+                                        <td><?= esc($datas->name); ?></td>
+                                        <td><?= esc($datas->category); ?></td>
+                                        <td><?= esc($datas->quantity); ?></td>
+                                        <td><?= esc($datas->sku); ?></td>
+                                        <td class="text-center" width="20%">
+                                            <a href="" class="btn btn-success btn-sm mb-1" data-toggle="modal" data-target="#updateModal<?= $datas->id; ?>">
+                                                Update
+                                            </a>
+                                            <a href="" class="btn btn-danger btn-sm mb-1" data-toggle="modal" data-target="#deleteModal<?= $datas->id; ?>">
+                                                Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
