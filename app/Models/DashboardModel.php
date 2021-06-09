@@ -14,13 +14,13 @@ class DashboardModel extends Model
     }
 
     // func select all data or by id
-    public function select_data($id = FALSE)
+    public function select_data($id = TRUE)
     {
         if ($id == FALSE) {
             return $this->builder->get()->getResultObject();
         }
 
-        return $this->builder->getWhere(['id' => 5])->getRow();
+        return $this->builder->getWhere(['quantity <' => 5])->getRow();
     }
 
     public function total_produk()
@@ -33,19 +33,36 @@ class DashboardModel extends Model
         return $this->db->table('supplier')->countAll();
     }
 
-    public function stok_kurang()
-    {
-        // return $this->db->table('produk')
-        // $builder = $this->db->table('produk');
-        // $builder->select('id,name,category,quantity,sku')
-        // ->where(array('quantity <' => 5));
-        // $query = $builder->get();
-        // return $query;
+    // public function stok_kurangg()
+    // {
+    //     $builder = $this->db->table('produk');
+    //     $query = $builder->get()->getResult();
+    //     $data['all_data'] = $query;
 
-        // SQL Statement
-        // return $this->db->table('produk')
-        // ->select('id,name ,category, quantity, sku')
-        // ->where(array('quantity <' => 5))
-        // ->get();
-    }
+    //     return $this->db->table('produk')->getWhere(['quantity <' => 5]);
+    // }
+
+    // public function stok_kurang()
+    // {
+
+    //     // $query = $builder->getWhere('produk', array('quantity <' => 5));
+        
+
+    //     // ini query
+    //     // return $this->db->table('produk')
+    //     //                 ->where(['quantity <' => 5])
+    //     //                 ->get()
+    //     //                 ->getRow();
+
+    //     // $builder = $this->db->table('produk');
+    //     // $builder->where(array('quantity <' => 5));
+    //     // $query = $builder->getCompiledSelect();
+    //     // return $query;
+
+    //     // SQL Statement
+    //     // return $this->db->table('produk')
+    //     // ->select('id,name ,category, quantity, sku')
+    //     // ->where(array('quantity <' => 5))
+    //     // ->get();
+    // }
 }
