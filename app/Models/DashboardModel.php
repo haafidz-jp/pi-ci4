@@ -13,56 +13,21 @@ class DashboardModel extends Model
         $this->builder = $this->db->table('produk');  
     }
 
-    // func select all data or by id
-    public function select_data($id = TRUE)
+    // fungsi SELECT * FROM produk WHERE quantity < 5;
+    public function produk_kurang()
     {
-        if ($id == FALSE) {
-            return $this->builder->get()->getResultObject();
-        }
-
-        return $this->builder->getWhere(['quantity <' => 5])->getRow();
+        return $this->builder->getWhere(['quantity <' => 5])->getResultObject();
     }
 
+    // return INT
     public function total_produk()
     {
         return $this->db->table('produk')->countAll();
     }
 
+    // return INT
     public function total_supplier()
     {
         return $this->db->table('supplier')->countAll();
     }
-
-    // public function stok_kurangg()
-    // {
-    //     $builder = $this->db->table('produk');
-    //     $query = $builder->get()->getResult();
-    //     $data['all_data'] = $query;
-
-    //     return $this->db->table('produk')->getWhere(['quantity <' => 5]);
-    // }
-
-    // public function stok_kurang()
-    // {
-
-    //     // $query = $builder->getWhere('produk', array('quantity <' => 5));
-        
-
-    //     // ini query
-    //     // return $this->db->table('produk')
-    //     //                 ->where(['quantity <' => 5])
-    //     //                 ->get()
-    //     //                 ->getRow();
-
-    //     // $builder = $this->db->table('produk');
-    //     // $builder->where(array('quantity <' => 5));
-    //     // $query = $builder->getCompiledSelect();
-    //     // return $query;
-
-    //     // SQL Statement
-    //     // return $this->db->table('produk')
-    //     // ->select('id,name ,category, quantity, sku')
-    //     // ->where(array('quantity <' => 5))
-    //     // ->get();
-    // }
 }
