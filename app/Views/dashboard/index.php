@@ -104,108 +104,77 @@
 
 <div class="row">
 
-    <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
+    <!-- Area STOK KURANG -->
+    <div class="col-xl-6 col-lg-12">
         <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
             <div
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">List Stok Barang < 5</h6>
-                <!-- <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div> -->
-                
+                <h6 class="m-0 font-weight-bold text-primary">List Stok Barang < 5</h6>                
             </div>
             <!-- Card Body -> stok < 5 -->
             <div class="card-body">
-                <div class="chart-area">
-                    <div class="table-responsive">
-                        <table class="table table-bordered display" id="dataTableKurang" width="100%" cellspacing="0">
-                            <thead>
+                <div class="table-responsive">
+                    <table class="table table-bordered display" id="dataTableKurang" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Kategori</th>
+                                <th>Quantity</th>
+                                <th>SKU</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($produk_kurang as $datas) : ?>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>Kategori</th>
-                                    <th>Quantity</th>
-                                    <th>SKU</th>
-                                    <th>Option</th>
+                                    <td width="1%"><?= $no++; ?></td>
+                                    <td><?= esc($datas->name); ?></td>
+                                    <td><?= esc($datas->category); ?></td>
+                                    <td><?= esc($datas->quantity); ?></td>
+                                    <td><?= esc($datas->sku); ?></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no = 1;
-                                foreach ($all_data as $datas) : ?>
-                                    <tr>
-                                        <td width="1%"><?= $no++; ?></td>
-                                        <td><?= esc($datas->name); ?></td>
-                                        <td><?= esc($datas->category); ?></td>
-                                        <td><?= esc($datas->quantity); ?></td>
-                                        <td><?= esc($datas->sku); ?></td>
-                                        <td class="text-center" width="20%">
-                                            <a href="" class="btn btn-success btn-sm mb-1" data-toggle="modal" data-target="#updateModal<?= $datas->id; ?>">
-                                                Update
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm mb-1" data-toggle="modal" data-target="#deleteModal<?= $datas->id; ?>">
-                                                Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Pie Chart -->
-    <div class="col-xl-4 col-lg-5">
+    <!-- AREA STOK LEBIH -->
+    <div class="col-xl-6 col-lg-12">
         <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
             <div
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
+                <h6 class="m-0 font-weight-bold text-primary">List Stok Barang > 10</h6>                
             </div>
-            <!-- Card Body -->
+            <!-- Card Body -> stok < 5 -->
             <div class="card-body">
-                <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                </div>
-                <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-info"></i> Referral
-                    </span>
+                <div class="table-responsive">
+                    <table class="table table-bordered display" id="dataTableLebih" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Kategori</th>
+                                <th>Quantity</th>
+                                <th>SKU</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($produk_lebih as $datas) : ?>
+                                <tr>
+                                    <td width="1%"><?= $no++; ?></td>
+                                    <td><?= esc($datas->name); ?></td>
+                                    <td><?= esc($datas->category); ?></td>
+                                    <td><?= esc($datas->quantity); ?></td>
+                                    <td><?= esc($datas->sku); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

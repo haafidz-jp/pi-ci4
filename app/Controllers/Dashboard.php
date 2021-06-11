@@ -20,7 +20,8 @@ class Dashboard extends BaseController
             'title' => 'Dashboard',
             'total_produk' => $this->dashboard->total_produk(),
             'total_supplier' => $this->dashboard->total_supplier(),
-            'all_data' => $this->dashboard->produk_kurang() 
+            'produk_kurang' => $this->dashboard->produk_kurang(),
+            'produk_lebih' => $this->dashboard->produk_lebih()
             
         ];
 

@@ -19,6 +19,12 @@ class DashboardModel extends Model
         return $this->builder->getWhere(['quantity <' => 5])->getResultObject();
     }
 
+     // fungsi SELECT * FROM produk WHERE quantity > 10;
+    public function produk_lebih()
+    {
+        return $this->builder->getWhere(['quantity >' => 10])->getResultObject();
+    }
+
     // return INT
     public function total_produk()
     {

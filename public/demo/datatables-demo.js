@@ -7,12 +7,22 @@ $(document).ready(function() {
 //   $('#datetimepicker1').datetimepicker();
 // });
 
-// custom js demo Scroll vertical
+// custom js demo 
 $(document).ready(function() {
   $('#dataTableKurang').DataTable( {
       "scrollY":        "200px",
       "scrollCollapse": true,
       "paging":         false,
+      "searching": false
+  } );
+} );
+
+// 
+$(document).ready(function() {
+  $('#dataTableLebih').DataTable( {
+      "scrollY":        "200px",
+      "scrollCollapse": true,
+      "paging":         true,
       "searching": false
   } );
 } );
