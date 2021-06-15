@@ -46,7 +46,7 @@ class Export extends BaseController
 
     public function export_excel()
     {
-        $peoples = $this->builder->get()->getResultArray();
+        $produk = $this->builder->get()->getResultArray();
 
         $spreadsheet = new Spreadsheet();
         // tulis header/nama kolom 
@@ -58,9 +58,9 @@ class Export extends BaseController
             ->setCellValue('E1', 'SKU');
 
         $column = 2;
-        // tulis data mobil ke cell
+        // tulis data ke cell
         $no = 1;
-        foreach ($peoples as $data) {
+        foreach ($produk as $data) {
             $spreadsheet->setActiveSheetIndex(0)
                 ->setCellValue('A' . $column, $no++)
                 ->setCellValue('B' . $column, $data['name'])
