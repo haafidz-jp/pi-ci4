@@ -9,14 +9,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <title>Print PDF</title>
+    <title>Export PDF</title>
 </head>
 
 <body>
 
     <div class="container mt-5">
     <h1 align="center">List Produk</h1>
-        <table class="table table-bordered table-striped" border="1">
+        <table cellpadding="6" class="table table-bordered table-striped " border="1">
                 <tr>
                     <th>No</th>
                     <th>Name</th>
