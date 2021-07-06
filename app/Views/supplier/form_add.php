@@ -4,7 +4,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4"><i class="fas fa-user"></i> supplier</h1>
+            <h1 class="mt-4"><i class="fas fa-user"></i> Supplier</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('supplier'); ?>">Supplier</a></li>
@@ -48,31 +48,24 @@
                     <?= form_open_multipart(); ?>
                     <?= csrf_field(); ?>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" class="form-control" value="<?= old('name'); ?>">
+                        <label for="name">Nama Vendor</label>
+                        <input type="text" name="namevendor" id="namevendor" class="form-control" value="<?= old('namevendor'); ?>">
                     </div>
                     <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
-                            <label class="form-check-label" for="male" <?= 'checked'; ?>>
-                                Male
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
-                            <label class="form-check-label" for="female">
-                                Female
-                            </label>
-                        </div>
+                        <label for="gender">Nama Sales</label>
+                        <input type="text" name="namesales" id="namesales" class="form-control" value="<?= old('namesales'); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">No Telepon</label>
+                        <input type="text" name="phone" id="phone" class="form-control" value="<?= old('phone'); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Alamat Email</label>
+                        <input type="text" name="email" id="email" class="form-control" value="<?= old('email'); ?>">
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
                         <textarea name="address" id="address" cols="30" rows="10" class="form-control"><?= old('address'); ?></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="photo">Photo</label>
-                        <input type="file" name="photo" id="photo">
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm float-right">Submit</button>
                     <a href="<?= base_url('supplier'); ?>" class="btn btn-secondary btn-sm float-right mr-1">Back</a>

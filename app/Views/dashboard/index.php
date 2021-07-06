@@ -17,7 +17,7 @@
 
     <!-- CARD Jumlah Produk -->
     <?php ?>
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-6 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -35,7 +35,7 @@
     </div>
 
     <!-- CARD Jumlah Supplier -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-6 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -53,7 +53,7 @@
     </div>
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -79,10 +79,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -97,89 +97,89 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
-<!-- Content Row -->
+    <!-- Content Row -->
 
-<div class="row">
+    <div class="row">
 
-    <!-- Area STOK KURANG -->
-    <div class="col-xl-6 col-lg-12">
-        <div class="card shadow mb-4">
-            <div
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">List Stok Barang < 5</h6>                
-            </div>
-            <!-- Card Body -> stok < 5 -->
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered display" id="dataTableKurang" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Kategori</th>
-                                <th>Quantity</th>
-                                <th>SKU</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 1;
-                            foreach ($produk_kurang as $datas) : ?>
+        <!-- Area STOK KURANG -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">List Stok Barang < 5</h6>                
+                </div>
+                <!-- Card Body -> stok < 5 -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered display" id="dataTableKurang" width="100%" cellspacing="0">
+                            <thead>
                                 <tr>
-                                    <td width="1%"><?= $no++; ?></td>
-                                    <td><?= esc($datas->name); ?></td>
-                                    <td><?= esc($datas->category); ?></td>
-                                    <td><?= esc($datas->quantity); ?></td>
-                                    <td><?= esc($datas->sku); ?></td>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Kategori</th>
+                                    <th>Quantity</th>
+                                    <th>SKU</th>
                                 </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1;
+                                foreach ($produk_kurang as $datas) : ?>
+                                    <tr>
+                                        <td width="1%"><?= $no++; ?></td>
+                                        <td><?= esc($datas->name); ?></td>
+                                        <td><?= esc($datas->category); ?></td>
+                                        <td><?= esc($datas->quantity); ?></td>
+                                        <td><?= esc($datas->sku); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AREA STOK LEBIH -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">List Stok Barang > 10</h6>                
+                </div>
+                <!-- Card Body -> stok < 5 -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered display" id="dataTableLebih" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Kategori</th>
+                                    <th>Quantity</th>
+                                    <th>SKU</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1;
+                                foreach ($produk_lebih as $datas) : ?>
+                                    <tr>
+                                        <td width="1%"><?= $no++; ?></td>
+                                        <td><?= esc($datas->name); ?></td>
+                                        <td><?= esc($datas->category); ?></td>
+                                        <td><?= esc($datas->quantity); ?></td>
+                                        <td><?= esc($datas->sku); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- AREA STOK LEBIH -->
-    <div class="col-xl-6 col-lg-12">
-        <div class="card shadow mb-4">
-            <div
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">List Stok Barang > 10</h6>                
-            </div>
-            <!-- Card Body -> stok < 5 -->
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered display" id="dataTableLebih" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Kategori</th>
-                                <th>Quantity</th>
-                                <th>SKU</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 1;
-                            foreach ($produk_lebih as $datas) : ?>
-                                <tr>
-                                    <td width="1%"><?= $no++; ?></td>
-                                    <td><?= esc($datas->name); ?></td>
-                                    <td><?= esc($datas->category); ?></td>
-                                    <td><?= esc($datas->quantity); ?></td>
-                                    <td><?= esc($datas->sku); ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 <!-- /.container-fluid -->
 

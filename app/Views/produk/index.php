@@ -184,7 +184,7 @@
                             <input type="text" name="quantity" id="quantity" class="form-control" value="<?= $datas->quantity; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="sku">Sku</label>
+                            <label for="sku">SKU</label>
                             <input type="text" name="sku" id="sku" class="form-control" value="<?= $datas->sku; ?>">
                         </div>
                         <div class="modal-footer">

@@ -32,9 +32,23 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Dashboard::index');
-$routes->get('/export-pdf', 'Export::export_pdf');
-$routes->get('/export-excel', 'Export::export_excel');
+$routes->get('/', 'Landing::index');
+
+// $routes->group('', ['filter' => 'login','admin'], function($routes){
+//     $routes->get('/dashboard', 'Dashboard::index');
+//     $routes->get('/produk/*', 'Produk::index');
+//     $routes->get('/supplier/*', 'Supplier::index');
+// });
+
+// $routes->get('/produk', 'Produk::index', ['filter' => 'role:admin']);
+// $routes->get('/supplier', 'Supplier::index', ['filter' => 'role:admin']);
+// $routes->get('/supplier/add_data', 'Supplier::add_data', ['filter' => 'role:admin']);
+// $routes->get('/supplier/update_data', 'Supplier::update_data', ['filter' => 'role:admin']);
+
+$routes->get('/export-pdf', 'Export::export_pdf', ['filter' => 'role:admin']);
+$routes->get('/export-excel', 'Export::export_excel', ['filter' => 'role:admin']);
+
+// $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'login','role:admin']);
 
 /*
  * --------------------------------------------------------------------

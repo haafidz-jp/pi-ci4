@@ -35,7 +35,7 @@ class Filters extends BaseConfig
 		'before' => [
 			// 'honeypot',
 			// 'csrf',
-			'login'
+            'login' => ['except' => ['/']], //just add like this
 		],
 		'after'  => [
 			'toolbar',
@@ -63,5 +63,10 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
-	public $filters = [];
+	public $filters = [
+	   // 'login' => ['before' => ['/dashboard/*',
+	   //                         '/supplier/*',
+	   //                         '/produk/*',
+	   //                         '/export-pdf']],
+	    ];
 }
