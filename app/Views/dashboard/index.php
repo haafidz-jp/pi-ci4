@@ -109,7 +109,11 @@
             <div class="card shadow mb-4">
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+<<<<<<< HEAD
                     <h6 class="m-0 font-weight-bold text-danger">List Stok Barang < 10</h6>                
+=======
+                    <h6 class="m-0 font-weight-bold text-primary">List Stok Barang < 5</h6>                
+>>>>>>> 32889eccb876f3c509551d8e75962d44f1e4e73e
                 </div>
                 <!-- Card Body -> stok < 5 -->
                 <div class="card-body">
