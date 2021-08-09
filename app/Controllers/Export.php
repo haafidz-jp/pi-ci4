@@ -71,7 +71,7 @@ class Export extends BaseController
         }
         // tulis dalam format .xlsx
         $writer = new Xlsx($spreadsheet);
-        $fileName = 'Produk Data';
+        $fileName = 'Produk_Data';
 
         // Redirect hasil generate xlsx ke web client
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');

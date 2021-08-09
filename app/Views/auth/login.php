@@ -78,6 +78,15 @@
                                             Password : starter12345
                                         </div>
                                     </div>
+                                    <!-- Footer -->
+                                    <footer class="sticky-footer bg-white mt-5">
+                                        <div class="container my-auto">
+                                            <div class="copyright text-center my-auto">
+                                                <span>Copyright &copy; pi.haafidz.xyz <?= date('Y') ?></span>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                    <!-- End of Footer -->
                                 </div>
                             </div>
                         </div>
@@ -86,10 +95,5 @@
             </div>
         </div>
     </div>
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-        <p>Copyright © pi.haafidz.xyz 2021</p>
-        </div>
-    </footer>
 </div>
 <?= $this->endSection(); ?>

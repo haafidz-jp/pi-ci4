@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2021 at 03:15 PM
+-- Generation Time: Jul 04, 2021 at 04:38 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -47,6 +47,14 @@ CREATE TABLE `auth_groups` (
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `auth_groups`
+--
+
+INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'Site Administrator'),
+(2, 'user', 'Regular User');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +66,14 @@ CREATE TABLE `auth_groups_permissions` (
   `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `auth_groups_permissions`
+--
+
+INSERT INTO `auth_groups_permissions` (`group_id`, `permission_id`) VALUES
+(1, 1),
+(1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +84,13 @@ CREATE TABLE `auth_groups_users` (
   `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_groups_users`
+--
+
+INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +138,32 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (24, '::1', 'user@gmail.com', 1, '2021-05-21 21:38:52', 1),
 (25, '::1', 'user@gmail.com', 1, '2021-05-25 22:05:02', 1),
 (26, '::1', 'user@gmail.com', 1, '2021-05-25 23:53:52', 1),
-(27, '::1', 'user@gmail.com', 1, '2021-05-30 00:23:58', 1);
+(27, '::1', 'user@gmail.com', 1, '2021-05-30 00:23:58', 1),
+(28, '::1', 'user@gmail.com', 1, '2021-06-12 12:29:44', 1),
+(29, '::1', 'user@gmail.com', 1, '2021-06-13 03:12:39', 1),
+(30, '::1', 'user@gmail.com', 1, '2021-06-24 08:57:01', 1),
+(31, '::1', 'star', NULL, '2021-06-24 08:59:04', 0),
+(32, '::1', 'user@gmail.com', 1, '2021-06-24 09:14:20', 1),
+(33, '::1', 'user@gmail.com', 1, '2021-06-24 09:31:00', 1),
+(34, '::1', 'user@gmail.com', 1, '2021-06-24 09:37:49', 1),
+(35, '::1', 'user@gmail.com', 1, '2021-06-24 09:43:29', 1),
+(36, '::1', 'haafidz123@gmail.com', NULL, '2021-06-24 09:45:31', 0),
+(37, '::1', 'user@gmail.com', 1, '2021-06-24 09:45:42', 1),
+(38, '::1', 'user@gmail.com', 1, '2021-06-24 09:47:22', 1),
+(39, '::1', 'user@gmail.com', 1, '2021-06-24 09:55:36', 1),
+(40, '::1', 'user@gmail.com', 1, '2021-06-24 10:46:44', 1),
+(41, '::1', 'user@gmail.com', 1, '2021-06-24 10:47:17', 1),
+(42, '::1', 'user@gmail.com', 1, '2021-06-30 22:58:05', 1),
+(43, '::1', 'user@gmail.com', 1, '2021-06-30 23:10:47', 1),
+(44, '::1', 'user@gmail.com', 1, '2021-07-01 01:44:37', 1),
+(45, '::1', 'user@gmail.com', 1, '2021-07-02 01:25:51', 1),
+(46, '::1', 'user@gmail.com', 1, '2021-07-03 11:20:42', 1),
+(47, '::1', 'user@gmail.com', 1, '2021-07-03 11:22:35', 1),
+(48, '::1', 'user@gmail.com', 1, '2021-07-03 11:23:02', 1),
+(49, '::1', 'user@gmail.com', 1, '2021-07-04 09:00:34', 1),
+(50, '::1', 'user@gmail.com', 1, '2021-07-04 09:19:34', 1),
+(51, '::1', 'user@gmail.com', 1, '2021-07-04 09:27:09', 1),
+(52, '::1', 'user@gmail.com', 1, '2021-07-04 09:35:27', 1);
 
 -- --------------------------------------------------------
 
@@ -128,6 +176,14 @@ CREATE TABLE `auth_permissions` (
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_permissions`
+--
+
+INSERT INTO `auth_permissions` (`id`, `name`, `description`) VALUES
+(1, 'manage-users', 'Manage All User'),
+(2, 'manage-profile', 'Manage User\'s Profile');
 
 -- --------------------------------------------------------
 
@@ -157,13 +213,6 @@ CREATE TABLE `auth_tokens` (
   `user_id` int(11) UNSIGNED NOT NULL,
   `expires` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `auth_tokens`
---
-
-INSERT INTO `auth_tokens` (`id`, `selector`, `hashedValidator`, `user_id`, `expires`) VALUES
-(1, 'ff6fab44cba4defe7c5acee6', '333aec84eaf718f7fd6b51a0ca0533eafd1b231e842b6fb3241f703796466312', 1, '2021-04-27 03:09:44');
 
 -- --------------------------------------------------------
 
@@ -209,8 +258,8 @@ CREATE TABLE `produk` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sku` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity` int(9) NOT NULL,
+  `sku` int(15) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -220,18 +269,18 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `name`, `category`, `quantity`, `sku`, `created_at`, `update_at`) VALUES
-(1, 'FaberCastell', 'Lain-Lain', '233', '123', '2021-05-07 14:58:24', '2021-05-07 14:58:24'),
-(2, 'Standard AE7', 'Lain-Lain', '24', '66', '2021-05-07 14:58:24', '2021-05-07 14:58:24'),
-(3, 'Kenko Pen Gel', 'Lain-Lain', '25', '77', '2021-05-07 14:58:24', '2021-05-07 14:58:24'),
-(4, 'SiDu 58', 'Buku Tulis', '26', '88', '2021-05-07 14:58:24', '2021-05-07 14:58:24'),
-(19, 'HVS 70gr', 'Kertas', '2', '123', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(21, 'HVS 80gr', 'Kertas', '311', '123121', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(22, 'Penggaris Butterfly 30CM', 'Lain-Lain', '100', '12333', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(23, 'SiDu 38', 'Buku Tulis', '222', '423', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(24, 'Flashdisk 32GB', 'Surat-Menyurat', '224', '1111', '2021-05-26 12:20:40', '2021-05-26 12:58:10'),
-(28, 'SiDu 59', 'Buku Tulis', '33', '123445', '2021-05-30 12:15:28', '2021-05-30 12:31:48'),
-(29, 'SiDu 60', 'Buku Tulis', '100', '1112', '2021-05-30 12:32:17', '2021-05-30 12:32:17'),
-(30, 'SiDu 611', 'Alat Tulis', '1', '001', '2021-05-30 12:45:36', '2021-05-30 12:46:09');
+(1, 'FaberCastell', 'Lain-Lain', 2332, 12344, '2021-05-07 14:58:24', '2021-06-23 21:22:58'),
+(2, 'Standard AE7', 'Lain-Lain', 24, 66, '2021-05-07 14:58:24', '2021-05-07 14:58:24'),
+(3, 'Kenko Pen Gel', 'Lain-Lain', 25, 77, '2021-05-07 14:58:24', '2021-05-07 14:58:24'),
+(4, 'SiDu 58', 'Buku Tulis', 26, 88, '2021-05-07 14:58:24', '2021-05-07 14:58:24'),
+(19, 'HVS 70gr', 'Kertas', 2, 123, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(21, 'HVS 80gr', 'Kertas', 311, 123121, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(22, 'Penggaris Butterfly 30CM', 'Lain-Lain', 100, 12333, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(23, 'SiDu 38', 'Buku Tulis', 222, 423, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(24, 'Flashdisk 32GB', 'Surat-Menyurat', 224, 1111, '2021-05-26 12:20:40', '2021-05-26 12:58:10'),
+(28, 'SiDu 59', 'Buku Tulis', 33, 123445, '2021-05-30 12:15:28', '2021-05-30 12:31:48'),
+(29, 'SiDu 60', 'Buku Tulis', 100, 1112, '2021-05-30 12:32:17', '2021-05-30 12:32:17'),
+(30, 'SiDu 611', 'Alat Tulis', 1, 198, '2021-05-30 12:45:36', '2021-06-13 15:36:22');
 
 -- --------------------------------------------------------
 
@@ -241,10 +290,11 @@ INSERT INTO `produk` (`id`, `name`, `category`, `quantity`, `sku`, `created_at`,
 
 CREATE TABLE `supplier` (
   `id` int(11) NOT NULL,
-  `name` varchar(128) NOT NULL,
-  `gender` varchar(20) NOT NULL,
+  `namevendor` varchar(30) NOT NULL,
+  `namesales` varchar(30) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `address` text NOT NULL,
-  `photo` varchar(128) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -253,10 +303,13 @@ CREATE TABLE `supplier` (
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`id`, `name`, `gender`, `address`, `photo`, `created_at`, `updated_at`) VALUES
-(8, 'Billy', 'Male', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae possimus, enim fugiat assumenda facilis cum sit, odio itaque sapiente nobis.', '1609654226_b43f308ecb2f7d206226.jpeg', '2021-01-02 23:27:16', '2021-01-03 00:10:26'),
-(9, 'George', 'Female', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti recusandae consectetur magnam quidem.', '1609652617_aefcf01489903d3b1a03.jpeg', '2021-01-02 23:43:37', '2021-01-03 00:09:31'),
-(10, 'Udins', 'Male', 'bksid1', '1622347380_0c2117ba917d349bd0ae.png', '2021-05-29 23:03:00', '2021-05-29 23:14:49');
+INSERT INTO `supplier` (`id`, `namevendor`, `namesales`, `phone`, `email`, `address`, `created_at`, `updated_at`) VALUES
+(8, 'PT FABERCASTELL', 'Johnny D Boy', '081288253426', 's@s.com', 'Jl Arjuna Utr 8 A RT 004/001, Dki Jakarta', '2021-01-02 23:27:16', '2021-07-02 03:19:27'),
+(9, 'PT FUJIFILM', 'AA PATAN', '02188121212', 'admin@fujifilm.com', ' Jl KH Hasyim Ashari 125 Kompl Niaga Roxy Mas Bl B 1/23-24, Dki Jakarta', '2021-01-02 23:43:37', '2021-07-02 04:08:33'),
+(12, 'PT MITSUBUSHI', 'ANTONY JAYA', '021123123123', 'antoni@toni.com', 'Kompl Permata Hijau Bl D/1 RT 004/12,Grogol Utara', '2021-07-02 03:24:38', '2021-07-02 03:29:54'),
+(13, 'PT DEWAWEB', 'FELIX', '02198231415', 'cs@dewaweb.com', 'Jl H Nawi Raya 9-A, Dki Jakarta', '2021-07-02 03:27:51', '2021-07-02 03:29:43'),
+(14, 'PT SUSU BERSAMA', 'IBRAHIM', '021121222', 'admin@susubersama.com', 'Jl Hayam wuruk 102 F, Dki Jakarta', '2021-07-02 03:29:26', '2021-07-02 03:29:26'),
+(15, 'CV POPE SALOM', 'YEHEZKIEL', '081187664774', 'yehezkiel@pope.com', 'Jl Jend Sudirman Kav 60 Menara Sudirman, Dki Jakarta', '2021-07-02 03:31:12', '2021-07-02 03:31:12');
 
 -- --------------------------------------------------------
 
@@ -394,19 +447,19 @@ ALTER TABLE `auth_activation_attempts`
 -- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_reset_attempts`
@@ -430,13 +483,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`

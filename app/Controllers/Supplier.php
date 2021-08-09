@@ -29,22 +29,20 @@ class Supplier extends BaseController
         $data['title'] = 'Add Data';
         if ($this->request->getPost()) {
             $rules = [
-                'name' => 'required|alpha_space',
-                'gender' => 'required',
-                'address' => 'required',
-                'photo' => 'uploaded[photo]|max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png]'
+                'namevendor' => 'required|alpha_space',
+                'namesales' => 'required|alpha_space',
+                'phone' => 'required|numeric',
+                'email' => 'required|valid_email',
+                'address' => 'required|string',
             ];
 
             if ($this->validate($rules)) {
-                $photo = $this->request->getFile('photo');
-                $photoName = $photo->getRandomName();
-                $photo->move('photos', $photoName);
-
                 $inserted = [
-                    'name' => $this->request->getPost('name'),
-                    'gender' => $this->request->getPost('gender'),
-                    'address' => $this->request->getPost('address'),
-                    'photo' => $photoName
+                    'namevendor' => $this->request->getPost('namevendor'),
+                    'namesales' => $this->request->getPost('namesales'),
+                    'phone' => $this->request->getPost('phone'),
+                    'email' => $this->request->getPost('email'),
+                    'address' => $this->request->getPost('address')
                 ];
 
                 $this->supplierModel->insert($inserted);
@@ -60,8 +58,6 @@ class Supplier extends BaseController
 
     public function delete_data($id)
     {
-        $photoId = $this->supplierModel->find($id);
-        unlink('photos/'.$photoId['photo']);
 
         $this->supplierModel->delete($id);
         session()->setFlashData('Success', 'data has been deleted from database.');
@@ -77,30 +73,21 @@ class Supplier extends BaseController
 
         if ($this->request->getPost()) {
             $rules = [
-                'name' => 'required|alpha_space',
-                'gender' => 'required',
-                'address' => 'required',
-                'photo' => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png]'
+                'namevendor' => 'required|alpha_space',
+                'namesales' => 'required|alpha_space',
+                'phone' => 'required|numeric',
+                'email' => 'required|valid_email',
+                'address' => 'required|string'
             ];
 
             if ($this->validate($rules)) {
-                $photo = $this->request->getFile('photo');
-                if ($photo->getError() == 4) {
-                    $photoName = $this->request->getPost('Oldphoto');
-                } else {
-                    $photoName = $photo->getRandomName();
-                    $photo->move('photos', $photoName);
-                    $photo = $this->supplierModel->find($id);
-                    if ($photo['photo'] == $photo['photo']) {
-                        unlink('photos/' . $this->request->getPost('Oldphoto'));
-                    }
-                }
 
                 $inserted = [
-                    'name' => $this->request->getPost('name'),
-                    'gender' => $this->request->getPost('gender'),
-                    'address' => $this->request->getPost('address'),
-                    'photo' => $photoName
+                    'namevendor' => $this->request->getPost('namevendor'),
+                    'namesales' => $this->request->getPost('namesales'),
+                    'phone' => $this->request->getPost('phone'),
+                    'email' => $this->request->getPost('email'),
+                    'address' => $this->request->getPost('address')
                 ];
 
                 $this->supplierModel->update($id, $inserted);

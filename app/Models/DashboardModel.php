@@ -13,16 +13,16 @@ class DashboardModel extends Model
         $this->builder = $this->db->table('produk');  
     }
 
-    // fungsi SELECT * FROM produk WHERE quantity < 5;
+    // fungsi SELECT * FROM produk WHERE quantity < 10;
     public function produk_kurang()
     {
-        return $this->builder->getWhere(['quantity <' => 5])->getResultObject();
+        return $this->builder->getWhere(['quantity <' => 10])->getResultObject();
     }
 
-     // fungsi SELECT * FROM produk WHERE quantity > 10;
+     // fungsi SELECT * FROM produk WHERE quantity > 50;
     public function produk_lebih()
     {
-        return $this->builder->getWhere(['quantity >' => 10])->getResultObject();
+        return $this->builder->getWhere(['quantity >' => 50])->getResultObject();
     }
 
     // return INT

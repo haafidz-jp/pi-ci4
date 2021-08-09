@@ -34,16 +34,16 @@
 
         <main role="main" class="inner cover">
             <h1 class="cover-heading">Selamat Datang</h1>
-            <p class="lead">Aplikasi Modul Inventory <strong>CV.Mulia Jaya</strong></p>
+            <p class="lead">Aplikasi Modul Inventory <br> <strong>CV.Mulia Jaya</strong></p>
             <p class="lead">
-            <a href="https://pi.haafidz.xyz/dashboard" class="btn btn-lg btn-primary btn-block">Dashboard</a>
+            <a href="<?= base_url('/dashboard'); ?>" class="btn btn-lg btn-primary btn-block">Dashboard</a>
             <a href="#about" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">About </a>
             </p>
         </main>
 
         <footer class="mastfoot mt-auto">
             <div class="inner">
-            <p>Copyright © pi.haafidz.xyz 2021</p>
+            <p style="color:white;">Copyright © pi.haafidz.xyz 2021</p>
             </div>
         </footer>
         </div>

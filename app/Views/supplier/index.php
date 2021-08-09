@@ -11,7 +11,7 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
-                    <i class="fas fa-table mr-1"></i>
+                    <i class="fas fa-user mr-1"></i>
                     Supplier Table
                 </div>
                 <div class="card-body">
@@ -46,10 +46,11 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Name</th>
-                                    <th>Gender</th>
-                                    <th>Address</th>
-                                    <th>Photo</th>
+                                    <th>Nama Vendor</th>
+                                    <th>Nama Sales</th>
+                                    <th>No Telepon</th>
+                                    <th>Email</th>
+                                    <th>Alamat</th>
                                     <th>Option</th>
                                 </tr>
                             </thead>
@@ -58,12 +59,11 @@
                                 foreach ($all_data as $datas) : ?>
                                     <tr>
                                         <td width="1%"><?= $no++; ?></td>
-                                        <td><?= esc($datas['name']); ?></td>
-                                        <td><?= esc($datas['gender']); ?></td>
+                                        <td><?= esc($datas['namevendor']); ?></td>
+                                        <td><?= esc($datas['namesales']); ?></td>
+                                        <td><?= esc($datas['phone']); ?></td>
+                                        <td><?= esc($datas['email']); ?></td>
                                         <td><?= esc($datas['address']); ?></td>
-                                        <td class="text-center" width="30%">
-                                            <img src="<?= base_url(); ?>/photos/<?= esc($datas['photo']); ?>" alt="photo" width="50%">
-                                        </td>
                                         <td class="text-center" width="20%">
                                             <a href="<?= base_url('supplier/update_data/'.$datas['id']); ?>" class="btn btn-success btn-sm mb-1">
                                                 Update
@@ -97,7 +97,7 @@
                     <?= form_open('supplier/delete_data/'.$datas['id']); ?>
                     <?= csrf_field(); ?>
                     <input type="hidden" name="id" value="<?= $datas['id']; ?>">
-                    <p>Click the submit button to delete data (<?= $datas['name']; ?>)..!!!</p>
+                    <p>Click the submit button to delete data (<?= $datas['namesales']; ?>)..!!!</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-danger btn-sm">Submit</button>
